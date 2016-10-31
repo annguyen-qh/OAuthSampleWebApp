@@ -2,7 +2,8 @@
 <html>
 <head>
     <title>Auth Sample</title>
-    <h1>Access Token Callback</h1>
+    <h1>Client</h1>
+    <h2>Access Token Callback</h2>
 </head>
 <body>
 <p>Receive Access Token<strong>: ${access_token}</strong></p>

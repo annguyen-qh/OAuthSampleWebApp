@@ -2,7 +2,8 @@
 <html>
 <head>
     <title>Auth Sample</title>
-    <h1>Request Permission</h1>
+    <h1>Auth Server</h1>
+    <h2>Request Permission</h2>
     <script type="text/javascript">
         function callServlet(end_point) {
             var serverdomain = "${serverdomain}";

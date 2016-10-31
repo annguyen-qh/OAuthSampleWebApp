@@ -2,7 +2,8 @@
 <html>
 <head>
     <title>Auth Sample</title>
-    <h1>AuthCallback</h1>
+    <h1>Client</h1>
+    <h2>AuthCallback</h2>
     <script type="text/javascript">
         function callServlet(end_point, auth_code) {
             var serverdomain = "${serverdomain}";
