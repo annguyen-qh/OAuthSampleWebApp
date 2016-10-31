@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         id="WebApp_ID" version="2.5">
+    <display-name>OAuth2.0_AuthCode</display-name>
+    <servlet>
+        <servlet-name>dispatcher</servlet-name>
+        <servlet-class>
+            org.springframework.web.servlet.DispatcherServlet
+        </servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.html</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>dispatcher</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/dispatcher-servlet.xml</param-value>
+    </context-param>
+
+    <listener>
+        <listener-class>
+            org.springframework.web.context.ContextLoaderListener
+        </listener-class>
+    </listener>
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.htm</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>default.html</welcome-file>
+        <welcome-file>default.htm</welcome-file>
+        <welcome-file>default.jsp</welcome-file>
+    </welcome-file-list>
+    <servlet>
+        <description></description>
+        <display-name>OAuth2Client</display-name>
+        <servlet-name>OAuth2Client</servlet-name>
+        <servlet-class>com.ibm.oauth.OAuth2Client</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>OAuth2Client</servlet-name>
+        <url-pattern>/handler</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <description></description>
+        <display-name>OAuthServer</display-name>
+        <servlet-name>OAuthServer</servlet-name>
+        <servlet-class>com.ibm.oauth.OAuth2Server</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>OAuthServer</servlet-name>
+        <url-pattern>/auth</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <description></description>
+        <servlet-name>AuthCallback</servlet-name>
+        <servlet-class>oauth.controller.client.AuthCallback</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AuthCallback</servlet-name>
+        <url-pattern>/authcallback</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <description></description>
+        <servlet-name>TokenCallback</servlet-name>
+        <servlet-class>oauth.controller.client.TokenCallback</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TokenCallback</servlet-name>
+        <url-pattern>/tokencallback</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <description></description>
+        <servlet-name>GetAuthCode</servlet-name>
+        <servlet-class>oauth.controller.server.AuthController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetAuthCode</servlet-name>
+        <url-pattern>/auth/getauthcode</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <description></description>
+        <servlet-name>GetAccessToken</servlet-name>
+        <servlet-class>oauth.controller.server.AccessTokenController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetAccessToken</servlet-name>
+        <url-pattern>/auth/getaccesstoken</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <description></description>
+        <servlet-name>GetPermission</servlet-name>
+        <servlet-class>oauth.controller.server.PermissionController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetPermission</servlet-name>
+        <url-pattern>/auth/permission</url-pattern>
+    </servlet-mapping>
+
+
+</web-app>

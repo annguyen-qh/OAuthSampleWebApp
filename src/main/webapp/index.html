@@ -1,0 +1,22 @@
+<html>
+<head>
+    <title>Auth Sample</title>
+    <h1>Tendsell OAuth2.0 Authorization code grant test client</h1>
+    <script type="text/javascript">
+        function callServlet(end_point) {
+            var serverdomain = "http://localhost:8080/";
+            var callback = "authcallback";
+            document.location.href = serverdomain + end_point
+                    + "?client_id=123";
+                    + "&callback=" + encodeURIComponent(serverdomain + callback);
+        }
+    </script>
+</head>
+<body>
+<p><strong>Oauth2Client.config</strong> configuration file. </p>
+<div>
+    <input type="button" id="accessToken" name="accessToken" value="Login with tend.ag"
+           onclick="callServlet('auth/getauthcode')">
+</div>
+</body>
+</html>
